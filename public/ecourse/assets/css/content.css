@@ -1,0 +1,95 @@
+/* PENGATURAN CSS PADA CONTENT */
+
+.judul-header {
+  color: rgb(78,93,120)!important;
+}
+
+/* PENGATURAN TABEL */
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  padding: 10px 10px 10px 10px;
+  font-size: 13px;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: rgba(0, 0, 0, .6);
+}
+
+/* PENGATURAN FORM */
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+.label-aplikasi {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: Tomato;
+  outline: 0;
+  box-shadow: 0 0 0 .7rem rgba(0,183,96, 0.5);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-width: 125px;
+  height: 30px;
+  padding: .375rem .75rem;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.5px solid #cccccc;
+  border-radius: 0px;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.form-clean {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 20px 15px 20px 15px;
+  border-top: 2.5px solid Tomato;
+  border-right: 0.5px solid #cccccc;
+  border-bottom: 0.5px solid #cccccc;
+  border-left: 0.5px solid #cccccc;
+  border-radius: 4px;
+}
+
+.button-accordion {
+  color: #343536!important;
+  font-size: 13px;
+}
+
+/* PENGATURAN TABS */
+
+.tab-header {
+  color: #515f7b!important;
+  font-size: 14px!important;
+  padding: 6px 12px 6px 12px!important;
+}
+
