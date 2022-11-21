@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminControler;
+use App\Http\Controllers\Admin\AdminDiskusiControler;
+use App\Http\Controllers\Admin\MateriController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DiskusiController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\JawabanController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,5 +51,14 @@ Route::resource('diskusi', DiskusiController::class, [
                     'show'
                 ]
             ]);
+Route::post('upload/image', [ImageController::class, 'image'])->middleware('auth')->name('upload-karya');
+Route::get('/course', [CourseController::class, 'index'])->name('course');
+
+Route::prefix('admin')->middleware('admin')->group(function(){
+    Route::resource('/materi', MateriController::class);
+
+    Route::resource('diskusi-admin', AdminDiskusiControler::class);
+    Route::resource('user-admin', AdminControler::class);
+});
 
 require __DIR__.'/auth.php';

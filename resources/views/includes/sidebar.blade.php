@@ -56,10 +56,10 @@
                     <a href="forms.html"><i class="fa fa-sitemap fa-fw"></i>Admin</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-sitemap fa-fw"></i>Materi & Video</a>
+                    <a href="{{ route('materi.index') }}"><i class="fa fa-sitemap fa-fw"></i>Materi & Video</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-sitemap fa-fw"></i>Diskusi</a>
+                    <a href="{{ route('diskusi.index') }}"><i class="fa fa-sitemap fa-fw"></i>Diskusi</a>
                 </li>
             </ul>
 

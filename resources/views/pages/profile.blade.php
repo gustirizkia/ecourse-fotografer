@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>mas-ari</title>
+    <title>Profile {{ Auth::user()->name }}</title>
     <link rel="stylesheet" href="{{ asset('ecourse/assets/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('ecourse/assets/fonts/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('ecourse/assets/css/sidebar.css') }}">
     <link rel="stylesheet" href="{{ asset('ecourse/assets/css/content.css') }}">
     <link rel="stylesheet" href="{{ asset('ecourse/assets/css/global/scroll-senkatech.css') }}">
-    <link rel="stylesheet" href="{{ asset('ecourse/assets/css/accordion-sidebar-L-senkatech.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('ecourse/assets/css/accordion-sidebar-L-senkatech.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('ecourse/assets/css/Footer-Dark-Multi-Column-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('ecourse/assets/css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('ecourse/assets/css/Projects-Grid-images.css') }}">
@@ -24,14 +24,24 @@
             <div class="col-md-8 col-xl-6 text-center mx-auto">
                 <h2 class="font-weight-bold" style="color:#1566B1;">Profile</h2>
             </div>
+            @if (Session::has('msgSuccess'))
+                <div class="col-12">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ Session::get('msgSuccess') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            @endif
         </div>
         <div class="row">
             <div class="col mb-4">
                 <div class="d-flex align-items-center"><img class="rounded-circle flex-shrink-0 mr-3 fit-cover"
-                        width="130" height="130" src="assets/img/image-profile.png">
+                        width="130" height="130" src="{{ asset("storage/".Auth::user()->image) }}">
                     <div>
-                        <h5 class="font-weight-bold text-muted mb-0">Arie Aprizal</h5>
-                        <p class="text-muted mb-1">Saya ingin menjadi photographer wedding</p>
+                        <h5 class="font-weight-bold text-muted mb-0">{{ Auth::user()->name }}</h5>
+                        <p class="text-muted mb-1">{{ Auth::user()->bio }}</p>
                         <ul class="list-inline text-muted w-100 mb-0">
                             <li class="list-inline-item text-center">
                                 <div class="d-flex flex-column align-items-center"><svg
@@ -57,20 +67,68 @@
             </div>
         </div>
         <div class="row">
-            <div class="col text-center mb-4"><button class="btn" type="button"
+            <div class="col text-center mb-4">
+                <button class="btn" type="button" data-toggle="modal" data-target="#exampleModal"
                     style="width:270px;background-color:#1566B1;color:#fff !important; border-radius:30px;">Upload Hasil
-                    Praktik</button></div>
+                    Praktik</button>
+            </div>
         </div>
+
+        {{-- Modal --}}
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Upload Image </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{ route('upload-karya') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-body">
+                            <input type="file" class="form-control-file" name="image">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                </div>
+        {{-- endModal --}}
+
         <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-4 text-center"><img class="img-fluid"
-                    src="{{ asset('ecourse/assets/img/image-1.png') }}" style="border-radius:30px;"><img
-                    class="img-fluid icon-check" src="assets/img/check.png"></div>
+            @forelse ($items as $item)
+                <div class="col-sm-12 col-md-6 col-lg-4 text-center">
+                    <img class="img-fluid" src="{{ asset('storage/'.$item->image) }}" style="border-radius:30px;">
+                    @if ($item->status !== 'pending')
+                        @if ($item->status === 'aproved')
+                            <img class="img-fluid icon-check" src="{{ asset('ecourse/assets/img/check.png') }}">
+                        @else
+                            <img class="img-fluid icon-check" src="{{ asset('ecourse/assets/img/uncheck.png') }}">
+                        @endif
+                    @else
+
+                    @endif
+                </div>
+            @empty
+                <div class="col-12">
+                    <h2 class="text-center">Tidak ada image</h2>
+                </div>
+            @endforelse
+             <div class="col-sm-12 col-md-6 col-lg-4 text-center"><img class="img-fluid" src="assets/img/image-1.png" style="border-radius:30px;">
+                <img class="img-fluid icon-check" src="{{ asset('ecourse/assets/img/uncheck.png') }}">
+            </div>
         </div>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ asset('ecourse/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('ecourse/assets/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
-    <script src="assets/js/sidebar.js"></script>
+    <script src="{{ asset('ecourse/assets/js/sidebar.js') }}"></script>
 </body>
 
 </html>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -13,6 +14,10 @@ class HomeController extends Controller
 
     public function profile(Request $request)
     {
-        return view('pages.profile');
+        $karya = DB::table('hasil_prakteks')->where('user_id', auth()->user()->id)->orderBy('id', 'desc')->get();
+
+        return view('pages.profile', [
+            'items' => $karya
+        ]);
     }
 }

@@ -4,9 +4,9 @@
                 class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link" href="index.php"><span
+                <li class="nav-item"><a class="nav-link" href="/"><span
                             style="color: rgb(159, 159, 159);">Home</span></a></li>
-                <li class="nav-item"><a class="nav-link" href="ecourse.php"><span
+                <li class="nav-item"><a class="nav-link" href="{{ route('course') }}"><span
                             style="color: rgb(159, 159, 159);">Ecourse</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('diskusi.index') }}"><span
                             style="color: rgb(159, 159, 159);">Q N
@@ -15,8 +15,14 @@
                             style="color: rgb(159, 159, 159);">Profile</span></a></li>
             </ul>
             <ul class="navbar-nav class= float-right ">
-                <li class="nav-item"><a class="nav-link" href="/login"><span
-                            style="color: rgb(159, 159, 159);">Login</span></a></li>
+                @auth
+                    <li class="nav-item"><a class="nav-link" href="#">{{ Auth::user()->name }}</a></li>
+                @endauth
+                        @guest
+                            <li class="nav-item"><a class="nav-link" href="/login"><span
+                                    style="color: rgb(159, 159, 159);">Login</span></a></li>
+
+                        @endguest
             </ul>
         </div>
     </div>

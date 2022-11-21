@@ -81,14 +81,24 @@
         <div class="row">
             <div class="col-sm-6">
                 <h2 align="center">Login</h2>
-                <form action="/action_page.php">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form action="{{ route('login') }}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="email">Email address:</label>
-                        <input type="email" class="form-control" placeholder="Enter email" id="email">
+                        <input type="email" class="form-control" placeholder="Enter email" id="email" name="email">
                     </div>
                     <div class="form-group">
                         <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+                        <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="password">
                     </div>
                     {{-- <div class="form-group form-check">
                         <label class="form-check-label">
