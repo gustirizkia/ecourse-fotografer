@@ -13,7 +13,7 @@ class CourseController extends Controller
         $item = null;
         if($request->id)
         {
-            $item = DB::table('courses')->where('id', $request->id)->first();
+            $item = DB::table('course')->where('id', $request->id)->first();
         }
 
         // dd($data);
