@@ -13,9 +13,9 @@ class CreateJawabansTable extends Migration
      */
     public function up()
     {
-        Schema::create('jawabans', function (Blueprint $table) {
+        Schema::create('jawaban', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('diskusi_id')->constrained('diskusis')->onDelete('cascade');
+            $table->foreignId('diskusi_id')->constrained('diskusi')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('judul');
             $table->longText('deskripsi');

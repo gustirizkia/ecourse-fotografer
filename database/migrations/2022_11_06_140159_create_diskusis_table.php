@@ -13,7 +13,7 @@ class CreateDiskusisTable extends Migration
      */
     public function up()
     {
-        Schema::create('diskusis', function (Blueprint $table) {
+        Schema::create('diskusi', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('judul');

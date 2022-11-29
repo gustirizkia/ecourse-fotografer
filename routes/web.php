@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminControler;
 use App\Http\Controllers\Admin\AdminDiskusiControler;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MateriController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DiskusiController;
@@ -55,8 +56,8 @@ Route::post('upload/image', [ImageController::class, 'image'])->middleware('auth
 Route::get('/course', [CourseController::class, 'index'])->name('course');
 
 Route::prefix('admin')->middleware('admin')->group(function(){
+    Route::get('/', [DashboardController::class, 'index'])->name('index-dashboard');
     Route::resource('/materi', MateriController::class);
-
     Route::resource('diskusi-admin', AdminDiskusiControler::class);
     Route::resource('user-admin', AdminControler::class);
 });

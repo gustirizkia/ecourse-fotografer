@@ -11,6 +11,8 @@ class Jawaban extends Model
 
     protected $guarded = [];
 
+    protected $table = 'jawaban';
+
     public function user()
     {
         return $this->belongsTo('App\Models\User');

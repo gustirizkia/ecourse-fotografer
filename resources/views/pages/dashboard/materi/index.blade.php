@@ -43,7 +43,7 @@
                 <input type="file" name="video">
                 </div>
                 <div class="form-group">
-                <label>Selects</label>
+                <label>Kategori materi</label>
                 <select class="form-control" name="kategori">
                     <option value="Pemula">Pemula</option>
                     <option value="Intermediate">Intermediate</option>

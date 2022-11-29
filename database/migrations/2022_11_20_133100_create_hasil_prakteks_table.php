@@ -13,7 +13,7 @@ class CreateHasilPrakteksTable extends Migration
      */
     public function up()
     {
-        Schema::create('hasil_prakteks', function (Blueprint $table) {
+        Schema::create('hasil_praktek', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('image');

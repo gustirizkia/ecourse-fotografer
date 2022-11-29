@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +16,11 @@ class MateriController extends Controller
      */
     public function index()
     {
+        $data = Course::orderBy('id', 'desc')->get();
 
+        return view('pages.dashboard.materi.table', [
+            'items' => $data
+        ]);
     }
 
     /**
@@ -61,7 +66,7 @@ class MateriController extends Controller
             $data['video'] = $video;
         }
 
-        $insert = DB::table('courses')->insertGetId($data);
+        $insert = DB::table('course')->insertGetId($data);
 
         return redirect()->back()->with('msgSuccess', 'Berhasil tambah materi');
     }

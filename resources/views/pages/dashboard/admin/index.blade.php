@@ -38,7 +38,7 @@
                                                 <div class="d-flex" style="display: flex">
                                                     <a href="{{ route('user-admin.edit', $item->id) }}" class="text-danger btn btn-link">Edit </a>
                                                     <span>
-                                                        <form action="{{ route('diskusi-admin.destroy' ,$item->id) }}" method="post">
+                                                        <form action="{{ route('user-admin.destroy' ,$item->id) }}" method="post">
                                                             @csrf
                                                             @method('delete')
                                                             <button type="submit" onclick="return confirm('Are you sure?')" class="text-danger btn btn-link">Hapus </button>

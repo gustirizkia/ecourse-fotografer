@@ -16,7 +16,12 @@
             </ul>
             <ul class="navbar-nav class= float-right ">
                 @auth
-                    <li class="nav-item"><a class="nav-link" href="#">{{ Auth::user()->name }}</a></li>
+                    <li class="nav-item">
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button class="nav-link btn btn-link" href="#">{{ Auth::user()->name }}</button>
+                        </form>
+                    </li>
                 @endauth
                         @guest
                             <li class="nav-item"><a class="nav-link" href="/login"><span

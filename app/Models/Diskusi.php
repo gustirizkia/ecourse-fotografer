@@ -11,6 +11,8 @@ class Diskusi extends Model
 
     protected $guarded = [];
 
+    protected $table = 'diskusi';
+
     public function user(){
         return $this->belongsTo('App\Models\User');
     }

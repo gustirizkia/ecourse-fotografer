@@ -13,7 +13,7 @@ class ImageController extends Controller
             ]);
 
             $image = $request->file('image')->store('hasil-prakter', 'public');
-            $insert = DB::table('hasil_prakteks')->insertGetId([
+            $insert = DB::table('hasil_praktek')->insertGetId([
                 'image' => $image,
                 'created_at' => now(),
                 'user_id' => auth()->user()->id

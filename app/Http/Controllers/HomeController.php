@@ -14,7 +14,7 @@ class HomeController extends Controller
 
     public function profile(Request $request)
     {
-        $karya = DB::table('hasil_prakteks')->where('user_id', auth()->user()->id)->orderBy('id', 'desc')->get();
+        $karya = DB::table('hasil_praktek')->where('user_id', auth()->user()->id)->orderBy('id', 'desc')->get();
 
         return view('pages.profile', [
             'items' => $karya

@@ -120,9 +120,6 @@
                     <h2 class="text-center">Tidak ada image</h2>
                 </div>
             @endforelse
-             <div class="col-sm-12 col-md-6 col-lg-4 text-center"><img class="img-fluid" src="assets/img/image-1.png" style="border-radius:30px;">
-                <img class="img-fluid icon-check" src="{{ asset('ecourse/assets/img/uncheck.png') }}">
-            </div>
         </div>
     </div>
     <script src="{{ asset('ecourse/assets/js/jquery.min.js') }}"></script>

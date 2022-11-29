@@ -89,6 +89,8 @@ class AdminControler extends Controller
         }
 
         $data->update($formData);
+
+        return redirect()->route('user-admin.index')->with('msgSuccess', 'Berhasil update data');
     }
 
     /**
@@ -99,6 +101,11 @@ class AdminControler extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = User::findOrFail($id);
+        $data->update([
+            'role' => 'user'
+        ]);
+
+        return redirect()->back()->with('msgSuccess', 'Berhasil hapus admin');
     }
 }
