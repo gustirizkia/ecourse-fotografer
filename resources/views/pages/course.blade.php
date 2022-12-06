@@ -83,24 +83,24 @@
                     </div>
                     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
                         <div class="col mb-4">
-                            <div><img class="rounded img-fluid w-100 fit-cover" src="assets/img/photo1.jpg" style="height: 300px;"></div>
+                            <div><img class="rounded img-fluid w-100 fit-cover" src="{{ asset('ecourse/assets/img/photo1.jpg') }}" style="height: 300px;"></div>
                         </div>
                         <div class="col mb-4">
-                            <div><img class="rounded img-fluid w-100 fit-cover" src="assets/img/photo1.jpg" style="height: 300px;"></div>
+                            <div><img class="rounded img-fluid w-100 fit-cover" src="{{ asset('ecourse/assets/img/photo1.jpg') }}" style="height: 300px;"></div>
                         </div>
                         <div class="col mb-4">
-                            <div><img class="rounded img-fluid w-100 fit-cover" src="assets/img/photo1.jpg" style="height: 300px;"> </div>
+                            <div><img class="rounded img-fluid w-100 fit-cover" src="{{ asset('ecourse/assets/img/photo1.jpg') }}" style="height: 300px;"> </div>
                         </div>
                     </div>
                     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
                         <div class="col mb-4">
-                            <div><img class="rounded img-fluid w-100 fit-cover" src="assets/img/photo1.jpg" style="height: 300px;"></div>
+                            <div><img class="rounded img-fluid w-100 fit-cover" src="{{ asset('ecourse/assets/img/photo1.jpg') }}" style="height: 300px;"></div>
                         </div>
                         <div class="col mb-4">
-                            <div><img class="rounded img-fluid w-100 fit-cover" src="assets/img/photo1.jpg" style="height: 300px;"></div>
+                            <div><img class="rounded img-fluid w-100 fit-cover" src="{{ asset('ecourse/assets/img/photo1.jpg') }}" style="height: 300px;"></div>
                         </div>
                         <div class="col mb-4">
-                            <div><img class="rounded img-fluid w-100 fit-cover" src="assets/img/photo1.jpg" style="height: 300px;"> </div>
+                            <div><img class="rounded img-fluid w-100 fit-cover" src="{{ asset('ecourse/assets/img/photo1.jpg') }}" style="height: 300px;"> </div>
                         </div>
                     </div>
                 @endif
