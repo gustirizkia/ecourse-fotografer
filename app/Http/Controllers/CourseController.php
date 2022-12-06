@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class CourseController extends Controller
 {
     public function index(Request $request){
-        $data = DB::table('courses')->get()->groupBy('kategori');
+        $data = DB::table('course')->get()->groupBy('kategori');
 
         $item = null;
         if($request->id)
